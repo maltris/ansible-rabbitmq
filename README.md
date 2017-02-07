@@ -78,19 +78,19 @@ First of all you need configure /etc/hosts:
 
 or you can use group variables (preferably)
 
-	[rabbidz1]
+	[rabbit-mq]
 	mq1.local
 	mq2.local
 
-	[rabbidz1:vars]
+	[rabbit-mq:vars]
 	rabbitmq_create_cluster=yes
 	rabbitmq_cluster_master=mq3
 
-	[rabbidz2]
+	[rabbit-mq-2]
 	mq3.local
 	mq4.local
 
-	[rabbidz2:vars]
+	[rabbit-mq-2:vars]
 	rabbitmq_create_cluster=yes
 	rabbitmq_cluster_master=mq3
 
@@ -103,3 +103,8 @@ Author Information
 ------------------
 
 - Alexey Medvedchikov, 2GIS, LLC
+
+Additional Information
+------------------
+
+This is a experimental fork from /alexey-medvedchikov/ansible-rabbitmq because of /alexey-medvedchikov/ansible-rabbitmq/issues/36.

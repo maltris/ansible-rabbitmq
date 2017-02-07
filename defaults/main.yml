@@ -3,10 +3,9 @@
 rabbitmq_erlang_cookie: 1qa2ws3ed
 rabbitmq_ulimit_open_files: 1024
 rabbitmq_memory_high_watermark: 0.4
-rabbitmq_create_cluster: no
-rabbitmq_cluster_master: localhost
+rabbitmq_create_cluster: yes
 rabbitmq_vhosts: []
-rabbitmq_use_longname: 'false'
+rabbitmq_use_longname: 'true'
 
 rabbitmq_logrotate_period: weekly
 rabbitmq_logrotate_amount: 20
@@ -21,6 +20,8 @@ rabbitmq_instant_shovels: false
 rabbitmq_plugins:
   - rabbitmq_management
   - rabbitmq_management_agent
+  - rabbitmq_federation
+  - rabbitmq_federation_management
 
 rabbitmq_users:
   - user: admin
@@ -41,7 +42,7 @@ rabbitmq_vhosts_queues:
     password:
     durable: 'true'
 
-##   Requares additional plugin enabled: rabbitmq_shovel
+##   Requires an additional plugin enabled: rabbitmq_shovel
 ##   See https://www.rabbitmq.com/shovel-dynamic.html for json format
 rabbitmq_shovels:
   -

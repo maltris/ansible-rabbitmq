@@ -19,5 +19,22 @@
         {fail_if_no_peer_cert,true}]}
 {% endif %}
 {% endif %}
+
+   ]},
+
+   %% management
+   {rabbitmq_management, [
+     {listener, [
+       {port,     15671}
+{%- if rabbitmq_ssl %},
+       {ssl,      true},
+       {ssl_opts, [
+        {cacertfile,"{{ rabbitmq_ssl_ca_cert }}"},
+        {certfile,"{{ rabbitmq_ssl_cert }}"},
+        {keyfile,"{{ rabbitmq_ssl_key }}"}
+         ]}
+{% endif %}
+       ]},
+     {rates_mode, detailed}
    ]}
 ].
