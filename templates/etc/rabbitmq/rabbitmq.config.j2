@@ -25,13 +25,16 @@
    %% management
    {rabbitmq_management, [
      {listener, [
-       {port,     15671}
+       {port,     15672}
 {%- if rabbitmq_ssl %},
        {ssl,      true},
        {ssl_opts, [
         {cacertfile,"{{ rabbitmq_ssl_ca_cert }}"},
         {certfile,"{{ rabbitmq_ssl_cert }}"},
-        {keyfile,"{{ rabbitmq_ssl_key }}"}
+        {keyfile,"{{ rabbitmq_ssl_key }}"},
+        {verify,verify_peer},
+        {fail_if_no_peer_cert,false},
+        {versions, ['tlsv1.2', 'tlsv1.1']}
          ]}
 {% endif %}
        ]},

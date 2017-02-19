@@ -1,7 +1,41 @@
 ---
 # Install required packages
 
-- name: install required packages
+- name: install required packages (erlang from jessie-backports)
+  apt:
+    update_cache: yes
+    force: yes
+    pkg: "{{ item }}"
+    state: present
+    default_release: jessie-backports
+  with_items:
+    - erlang-asn1 
+    - erlang-base 
+    - erlang-corba 
+    - erlang-crypto 
+    - erlang-diameter 
+    - erlang-edoc 
+    - erlang-eldap 
+    - erlang-erl-docgen 
+    - erlang-eunit 
+    - erlang-ic 
+    - erlang-inets 
+    - erlang-mnesia 
+    - erlang-nox 
+    - erlang-odbc 
+    - erlang-os-mon 
+    - erlang-parsetools 
+    - erlang-percept 
+    - erlang-public-key 
+    - erlang-runtime-tools 
+    - erlang-snmp 
+    - erlang-ssh 
+    - erlang-ssl 
+    - erlang-syntax-tools 
+    - erlang-tools 
+    - erlang-xmerl
+
+- name: install required packages (rabbitmq-server)
   apt:
     update_cache: yes
     force: yes
