@@ -2,3 +2,6 @@
 # Comment lines start with a hash character.
 # This is a /bin/sh script file - use ordinary envt var syntax
 RABBITMQ_USE_LONGNAME={{ rabbitmq_use_longname }}
+ERL_SSL_PATH="/usr/lib/erlang/lib/ssl-8.1/ebin"
+RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS="-pa ${ERL_SSL_PATH} -proto_dist inet_tls -ssl_dist_opt server_certfile {{ rabbitmq_ssl_cert_pem }} -ssl_dist_opt server_secure_renegotiate true client_secure_renegotiate true"
+RABBITMQ_CTL_ERL_ARGS="-pa ${ERL_SSL_PATH} -proto_dist inet_tls -ssl_dist_opt server_certfile {{ rabbitmq_ssl_cert_pem }} -ssl_dist_opt server_secure_renegotiate true client_secure_renegotiate true"
